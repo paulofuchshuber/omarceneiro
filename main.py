@@ -1,9 +1,10 @@
-from flask import Flask
-app = Flask(__name__)
+import pygame as pg
+from OpenGL.GL import *
 
-@app.route("/")
-def hello():
-    return "Hello World!"
+class App:
 
-if __name__ == "__main__":
-    app.run()
+    def __init__(self):
+        pg.init()
+        pg.display.set_mode((640, 480), pg.OPENGL|pg.DOUBLEBUF)
+        self.clock = pg.time.Clock()
+        glClearColor(0.1, 0.2, 0.2, 1)
